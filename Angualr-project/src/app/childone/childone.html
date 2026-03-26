@@ -1,3 +1,21 @@
+
+
+<h1 *ngIf="isLogin">Welcome User</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div style="border: 2px solid #333; padding: 20px; border-radius: 10px; width: 500px; background-color: #f9f9f9;">
 
     <h1 style="text-align:center; color:#2c3e50;">Data Binding</h1>
@@ -6,7 +24,7 @@
 
     <!-- Interpolation -->
     <section>
-        <h2>🔹 Interpolation</h2>
+        <h2>Interpolation</h2>
         <p><b>Example:</b></p>
         <p class="output-box">HELLO {{ val }}</p>
     </section>
@@ -15,18 +33,17 @@
 
     <!-- One Way Binding -->
     <section>
-        <h2>🔹 One-Way Data Binding</h2>
+        <h2>One-Way Data Binding</h2>
 
         <!-- Child to Parent -->
-        <h3>➡ Child to Parent</h3>
+        <h3>Child to Parent</h3>
         <p class="output-box">HELLO {{ val }}</p>
-
         <button (click)="sendData()">Send Data to Parent</button>
 
         <br><br>
 
         <!-- Parent to Child -->
-        <h3>➡ Parent to Child</h3>
+        <h3>Parent to Child</h3>
         <p class="output-box">Name is coming from parent: {{ name }}</p>
     </section>
 
@@ -34,8 +51,9 @@
 
     <!-- Input Box -->
     <section>
-        <h2>🔹 User Input</h2>
+        <h2>User Input</h2>
         <input type="text" placeholder="Enter something..." style="padding:5px; width:100%;">
     </section>
 
 </div>
+

@@ -1,12 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-childone',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './childone.html',
   styleUrl: './childone.css',
 })
 export class Childone {
+  // boolean
+  isLogin:boolean = false
 
   // interpolation
   val:string = "biswa"
