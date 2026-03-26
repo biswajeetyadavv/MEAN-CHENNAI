@@ -1,0 +1,34 @@
+<div class="dashboard">
+    <div class="header">
+        <h2>Welcome to EMS</h2>
+    </div>
+    <div class="add">
+        <a routerLink="/create">Add Employee</a>
+    </div>
+    <table>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>   
+            
+            @for(employee of allEmployees; track $index){
+            <tr>
+                <td>{{employee.id}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.email}}</td>
+                <td>
+                    <a [routerLink]="['/view', employee.id]" id="view">Read</a>
+                    <a [routerLink]="['/update', employee.id]" id="update">Update</a>
+                    <a [routerLink]="['/delete', employee.id]" id="delete" (click)="delete(employee.id)">Delete</a>
+                </td>
+            </tr>
+            }
+
+            
+        </tbody>
+    </table>
+    <div class="center">{{message}}</div>
+</div>

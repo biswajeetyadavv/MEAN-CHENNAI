@@ -1,0 +1,26 @@
+{
+  "employee": [
+    {
+      "name": "Vikash",
+      "email": "Vikash@yahoo.com",
+      "mobile": "12345673",
+      "department": "c",
+      "id": "2wb_N78N5ww"
+    },
+    {
+      "name": "Biswajeet Yadav",
+      "email": "biswa@mgala.com",
+      "mobile": "123456",
+      "department": "ba",
+      "id": "-Iqw2iy-kK8"
+    },
+    {
+      "name": "ram",
+      "email": "Ram@gmail.com",
+      "mobile": "234567",
+      "department": "a",
+      "id": "C4M8063ZMls"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
