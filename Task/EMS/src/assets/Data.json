@@ -6,7 +6,14 @@
       "mobile": "123",
       "department": "A",
       "id": "ZmoqV-aYahs"
+    },
+    {
+      "name": "biswajeet yadav",
+      "email": "biswajeetyadavofficial@gmail.com",
+      "mobile": "09078170637",
+      "department": "u",
+      "id": "CTNX6tlP4Vc"
     }
-  ],
+  ], 
   "$schema": "./node_modules/json-server/schema.json"
 }
