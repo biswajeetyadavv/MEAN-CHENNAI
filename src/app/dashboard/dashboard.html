@@ -11,16 +11,19 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Mobile</th>
+                <th>Dept</th>
                 <th>Actions</th>
             </tr>   
-            
             @for(employee of allEmployees; track $index){
             <tr>
                 <td>{{employee.id}}</td>
                 <td>{{employee.name}}</td>
                 <td>{{employee.email}}</td>
+                <td>{{employee.mobile}}</td>
+                <td>{{employee.department}}</td>
                 <td>
-                    <a [routerLink]="['/view', employee.id]" id="view">Read</a>
+                    <a [routerLink]="['/view', employee.id]" id="view">View</a>
                     <a [routerLink]="['/update', employee.id]" id="update">Update</a>
                     <a [routerLink]="['/delete', employee.id]" id="delete" (click)="delete(employee.id)">Delete</a>
                 </td>
@@ -31,4 +34,5 @@
         </tbody>
     </table>
     <div class="center">{{message}}</div>
+    <!-- <div class="center">{{trail}}</div> -->
 </div>

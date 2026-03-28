@@ -1,33 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
-import { Auth } from '../services/auth';
-import { Employee } from '../employee';
+import { ChangeDetectorRef, Component } from "@angular/core";
+import { Employee } from "../employee";
+import { CommonModule } from "@angular/common";
+import { OnInit } from "@angular/core";
+import { Auth } from "../services/auth";
+import { ActivatedRoute, Router, RouterModule } from "@angular/router";
+
 
 @Component({
-  selector: 'app-dashboard',
-  imports: [CommonModule, RouterModule],
-  templateUrl: './dashboard.html',
-  styleUrl: './dashboard.css'
+   selector:'app-dashboard',
+   imports:[RouterModule, CommonModule],
+   templateUrl: 'dashboard.html',
+   styleUrl:'dashboard.css'
 })
-export class Dashboard implements OnInit{
-   constructor(private auth: Auth, private router: ActivatedRoute){}
-   allEmployees: Employee[] = [];
-   message:string = '';
 
-   ngOnInit(): void {
-      this.auth.getAllEmployees().subscribe(res=>{
-         this.allEmployees = res;
-      });
-   }
+export class Dashboard implements OnInit{
+   allEmployees:Employee[] = [];
+   constructor(private auth: Auth, private route:ActivatedRoute, private cdr:ChangeDetectorRef){}
+   message:string ="";
    
-   delete(id: any){
-     this.auth.deleteEmployee(id).subscribe(res=>{
-        this.message = "Deleted";
-        this.allEmployees = this.allEmployees.filter((emp: Employee) => emp.id !== id);
-        setTimeout(()=>{
-           this.message = "done del";
-        }, 1000);
-     })
-  }
+   ngOnInit():void{
+      this.auth.getAllEmployees().subscribe(res =>{
+         this.allEmployees = res;
+         // console.log(res)
+         console.log(this.allEmployees)
+         this.cdr.detectChanges();  
+
+      })
+   }
+
+
+
+   delete(id:any):void{
+      this.auth.deleteEmployee(id).subscribe(res=>{
+         console.log(res)
+         console.log("work")
+         this.cdr.detectChanges();
+      })
+   }
 }

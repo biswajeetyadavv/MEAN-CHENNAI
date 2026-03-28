@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 import { Auth } from '../services/auth';
+ChangeDetectorRef
 
 @Component({
   selector: 'app-update',
@@ -11,7 +12,7 @@ import { Auth } from '../services/auth';
   styleUrl: './update.css'
 })
 export class Update implements OnInit{
-   constructor(private route: ActivatedRoute, private fb: FormBuilder, private auth: Auth, private router: Router){}
+   constructor(private cdr: ChangeDetectorRef, private route: ActivatedRoute, private fb: FormBuilder, private auth: Auth, private router: Router){}
    empId: any;
    empDetails: any;
    updateForm: FormGroup = new FormGroup({});
@@ -23,15 +24,17 @@ export class Update implements OnInit{
       });
       if(this.empId !== ''){
          this.auth.getEmployeeById(this.empId)
-         .toPromise()
+         .toPromise()   
          .then(res=>{
             this.empDetails = res;
+            console.log(this.empDetails);
             this.updateForm = this.fb.group({
                'name': new FormControl(this.empDetails.name),
                'email': new FormControl(this.empDetails.email),
                'mobile': new FormControl(this.empDetails.mobile),
                'department': new FormControl(this.empDetails.department)
             });
+            this.cdr.detectChanges();
         });
       }
    }
